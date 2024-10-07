@@ -1,0 +1,148 @@
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container to center all content */
+.container {
+    text-align: center;
+    max-width: 800px;    /* Limits the maximum width of the container */
+    margin: auto;
+    padding: 0 15px;     /* Padding to prevent overflow */
+}
+
+/* Logo at the top */
+.logo {
+    display: block;          
+    margin: 0 auto;         
+    height: 200px;          
+    width: auto;            
+    margin-bottom: 30px;    
+}
+
+/* Navigation bar */
+nav {
+    background-color: #007bff;
+    padding: 20px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav img {
+    height: 60px;
+    vertical-align: middle;
+}
+
+nav h1 {
+    display: inline;
+    color: white;
+    font-size: 24px;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+/* Button styles */
+button {
+    font-size: 24px;
+    padding: 20px 40px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    margin: 20px auto; /* Centering button */
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button span {
+    font-weight: normal;
+    font-size: 18px;
+}
+
+/* Form styles */
+form {
+    margin: 50px auto; /* Center form content horizontally */
+    max-width: 600px; /* Limit form width */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Aligns inputs to the left */
+    display: flex;
+    flex-direction: column; /* Stack the inputs vertically */
+    justify-content: center; /* Center the content vertically */
+}
+
+/* Inputs should stretch to full width */
+input[type="text"], input[type="number"], input[type="date"], select {
+    width: 100%; /* Make input fields full width */
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Charts */
+canvas {
+    max-width: 90%;
+    margin: 30px auto;
+    display: block;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    button {
+        font-size: 20px;
+        padding: 15px 30px;
+        width: 100%; /* Full-width button for mobile */
+    }
+
+    form {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    nav img {
+        height: 50px;
+    }
+
+    nav h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 18px; /* Adjust further for smaller screens */
+    }
+
+    form {
+        padding: 15px; /* Reduce padding further */
+    }
+}

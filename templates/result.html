@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        <h1>Capture Results</h1>
+
+        <h2>Sensor Averages:</h2>
+        <ul>
+            <li>MQ2: {{ sensor_data['sensor_avg'][0] }}</li>
+            <li>MQ3: {{ sensor_data['sensor_avg'][1] }}</li>
+            <li>MQ4: {{ sensor_data['sensor_avg'][2] }}</li>
+            <li>MQ6: {{ sensor_data['sensor_avg'][3] }}</li>
+            <li>MQ7: {{ sensor_data['sensor_avg'][4] }}</li>
+            <li>MQ135: {{ sensor_data['sensor_avg'][5] }}</li>
+        </ul>
+
+        <h2>Calibration Averages:</h2>
+        <ul>
+            <li>MQ2: {{ calibration_averages[0] }}</li>
+            <li>MQ3: {{ calibration_averages[1] }}</li>
+            <li>MQ4: {{ calibration_averages[2] }}</li>
+            <li>MQ6: {{ calibration_averages[3] }}</li>
+            <li>MQ7: {{ calibration_averages[4] }}</li>
+            <li>MQ135: {{ calibration_averages[5] }}</li>
+        </ul>
+
+        <!-- Characteristics radar chart -->
+        <h2>Wine Characteristics:</h2>
+        <canvas id="characteristicsRadarChart" width="400" height="400"></canvas>
+
+        <canvas id="radarChart" width="400" height="400"></canvas>
+
+        <!-- New Canvas for Temperature and Humidity Bar Chart -->
+        <h2>Temperature and Humidity:</h2>
+        <canvas id="barChart" width="400" height="400"></canvas>
+
+        <!-- Data attributes to pass data to the JavaScript -->
+        <div id="sensor-data" data-sensors='{{ sensor_data['sensor_avg'] | tojson | safe }}'></div>
+        <div id="calibration-data" data-calibration='{{ calibration_averages | tojson | safe }}'></div>
+        
+        <!-- Pass temperature and humidity data to JavaScript -->
+        <div id="temperature-humidity" data-temp='{{ sensor_data["temperature"] }}' data-humidity='{{ sensor_data["humidity"] }}'></div>
+
+        <!-- Pass characteristics data to JavaScript -->
+        <div id="characteristics-data" data-characteristics='{{ sensor_data["user_data"]["characteristics"] | tojson | safe }}'></div>
+
+
+        <div>
+            <button class="button" onclick="window.location.href='/'">Back to Calibration</button>
+            <button class="button" onclick="window.location.href='/input'">Back to Input</button>
+            <button class="button" onclick="window.location.href='/shutdown'">Turn Off</button>
+        </div>
+    </div>
+
+    <!-- Include the JavaScript file -->
+    <script src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+</html>

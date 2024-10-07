@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Input Page</title>
+</head>
+<body>
+    
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+
+    <h1>Input Wine Information</h1>
+    <form id="wineInputForm" method="POST" action="/capture" >
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="wine_type">Wine Type:</label>
+        <input type="text" id="wine_type" name="wine_type" required><br>
+
+        <label for="origin">Origin:</label>
+        <input type="text" id="origin" name="origin" required><br>
+
+        <label for="wine_name">Wine Name:</label>
+        <input type="text" id="wine_name" name="wine_name" required><br>
+
+        <label for="alcohol_percent">Alcohol Percentage:</label>
+        <input type="number" id="alcohol_percent" name="alcohol_percent" min="0" max="100" step="0.1" required><br>
+
+
+        <label for="date_of_produce">Date of Produce:</label>
+        <input type="date" id="date_of_produce" name="date_of_produce" required><br>
+
+        <h3>Characteristics (1 to 10)</h3>
+        <label for="light">Light:</label>
+        <input type="number" id="light" name="light" min="1" max="10"><br>
+
+        <label for="bold">Bold:</label>
+        <input type="number" id="bold" name="bold" min="1" max="10"><br>
+
+        <label for="smooth">Smooth:</label>
+        <input type="number" id="smooth" name="smooth" min="1" max="10"><br>
+
+        <label for="dry">Dry:</label>
+        <input type="number" id="dry" name="dry" min="1" max="10"><br>
+
+        <label for="soft">Soft:</label>
+        <input type="number" id="soft" name="soft" min="1" max="10"><br>
+
+        <label for="acidic">Acidic:</label>
+        <input type="number" id="acidic" name="acidic" min="1" max="10"><br>
+
+        <label for="tannic">Tannic:</label>
+        <input type="number" id="tannic" name="tannic" min="1" max="10"><br>
+
+        <label for="sweet">Sweet:</label>
+        <input type="number" id="sweet" name="sweet" min="1" max="10"><br>
+
+        <button class="button" id="captureButton" type="submit">
+            Start Capture (<span id="captureCountdown">10</span>)
+        </button>
+        
+    
+    </form>
+
+    <!-- Include external JavaScript file -->
+    <script src="{{ url_for('static', filename='js/input.js') }}"></script> 
+</div>
+</body>
+</html>

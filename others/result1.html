@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+</head>
+<body>
+    <h1>Capture Results</h1>
+    <p>Sensor Averages:</p>
+    <ul>
+        <li>MQ2: {{ sensor_data['sensor_avg'][0] }}</li>
+        <li>MQ3: {{ sensor_data['sensor_avg'][1] }}</li>
+        <li>MQ4: {{ sensor_data['sensor_avg'][2] }}</li>
+        <li>MQ6: {{ sensor_data['sensor_avg'][3] }}</li>
+        <li>MQ7: {{ sensor_data['sensor_avg'][4] }}</li>
+        <li>MQ135: {{ sensor_data['sensor_avg'][5] }}</li>
+    </ul>
+    <p>Temperature: {{ sensor_data['temperature'][0] }}°C</p>
+    <p>Humidity: {{ sensor_data['temperature'][1] }}%</p>
+    <p>Timestamp: {{ sensor_data['timestamp'] }}</p>
+</body>
+</html>
